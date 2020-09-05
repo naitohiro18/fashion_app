@@ -1,14 +1,21 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <router-link to="/login">ログインページ</router-link>
+    <router-view></router-view>
+
+    <div class="header">
+      <h1>My Cloz</h1>
+      <h2>アカウント作成/ログイン</h2>
     </div>
-    <router-view />
   </div>
 </template>
 
 <style lang="scss">
+.body{
+  padding:0;
+  margin:0;
+
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -17,6 +24,11 @@
   color: #2c3e50;
 }
 
+.header{
+  width:100%;
+  height:50px;
+  border-bottom: 1px solid black;
+}
 #nav {
   padding: 30px;
 
