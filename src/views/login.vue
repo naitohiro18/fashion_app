@@ -2,13 +2,8 @@
 
 <template>
   <div class="log in">
-<<<<<<< HEAD
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <div>googleでログイン</div>
-=======
     <img alt="Vue logo" src="@/assets/hanger.png" />
     <div>google でログイン</div>
->>>>>>> origin/master
     <div v-if="user">
     <button v-on:click="logOut">log Out</button>
     </div>
