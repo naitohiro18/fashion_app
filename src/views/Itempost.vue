@@ -1,13 +1,13 @@
 <template>
   <div class="post">
-    <select name="category">
+    <select v-model="category" name="category">
       <option value>カテゴリー</option>
       <option value="トップス">トップス</option>
       <option value="ボトムス">ボトムス</option>
       <option value="シューズ">シューズ</option>
     </select>
 
-    <select name="itemsize">
+    <select v-model="itemsize" name="itemsize">
       <option value>サイズ</option>
       <option value="S">S</option>
       <option value="M">M</option>
@@ -34,7 +34,9 @@ export default {
         title: "",
         description: "",
         image: null
-      }
+      },
+      category: "",
+      itemsize: ""
     };
   },
   methods: {
