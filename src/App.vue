@@ -3,10 +3,7 @@
     <router-link to="/login">ログインページ</router-link>
     <router-view></router-view>
 
-    <div class="header">
-      <h1>My Cloz</h1>
-      <h2>アカウント作成/ログイン</h2>
-    </div>
+    
   </div>
 </template>
 
