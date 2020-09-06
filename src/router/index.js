@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import login from "../views/login.vue";
 import mail from "../views/mail.vue";
+import register from "../views/Register.vue";
 
 Vue.use(VueRouter);
 
@@ -31,7 +32,11 @@ const routes = [
     name: "mail",
     component: mail
   },
-
+  {
+    path: "/register",
+    name: "register",
+    component: register
+  },
 ];
 
 const router = new VueRouter({

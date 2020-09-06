@@ -7,6 +7,7 @@
     <div v-else>
  <router-link to="/login">googleログインページ</router-link>
      <router-link to="/mail">メールログインページ</router-link>
+     <router-link to="/register">登録ページ</router-link>
     </div>
     <router-view></router-view>
 
