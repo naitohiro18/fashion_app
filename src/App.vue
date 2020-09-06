@@ -11,11 +11,15 @@
     </div>
     <router-view></router-view>
 
+<<<<<<< HEAD
     <div class="header">
       <h1>My Cloz</h1>
       <h2>アカウント作成/ログイン</h2>
      
     </div>
+=======
+    
+>>>>>>> origin/master
   </div>
 </template>
 <script>
