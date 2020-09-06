@@ -1,15 +1,15 @@
-//このページではgoogle loginができるようにする
+//このページではmailloginができるようにする
 
 <template>
   <div class="log in">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <div>googleでログイン</div>
-    <div v-if="user">
-    <button v-on:click="logOut">log Out</button>
-    </div>
-    <div v-else>
-    <button v-on:click="logIn">log in</button>
-    </div>
+    <div>mailでログイン</div>
+    
+    <div v-show="signup_vesible"><Signup></Signup></div>
+    <button v-on:click="signup_vesible=!signup_vesible">アカウント新規作成の方はこちら</button>
+    
+    <div v-show="!signup_vesible"><Signin></Signin></div>
+    <!--基本的にはSigninにしといてアカウントを持っている人にはSignupを表示させるようにする -->
    
 
   </div>
@@ -17,28 +17,31 @@
 
 <script>
 import firebase from "firebase"
+import Signup from "@/components/Signup.vue"
+import Signin from "@/components/Signin.vue"
+
 export default{
+  components:{
+    Signup,
+    Signin,
+  },
   data(){
   return {
+    signup_vesible:false,
     user:null,
+    email:null,
+    password:null,
     
 }},
 
 
   methods:{
+
     addUser(info) {
       console.log(info)
       this.$store.dispatch("addUser", info);
     },
-    logIn(){
-      const provider = new firebase.auth.GoogleAuthProvider()
-      firebase.auth().signInWithPopup(provider)
-      
-    },
-    logOut(){
-      firebase.auth().signOut()
-
-    },
+    
     authState(){
       firebase.auth().onAuthStateChanged(user =>  {
       console.log("authが実行")
@@ -54,9 +57,6 @@ export default{
       }
       })
     }
-  },
-  created(){
-    this.authState()
-  }
-}
+
+  }}
   </script>

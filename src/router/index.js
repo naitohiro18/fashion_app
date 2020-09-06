@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import login from "../views/login.vue";
+import mail from "../views/mail.vue";
 
 Vue.use(VueRouter);
 
@@ -24,6 +25,11 @@ const routes = [
     path: "/login",
     name: "login",
     component: login
+  },
+  {
+    path: "/mail",
+    name: "mail",
+    component: mail
   },
 
 ];
