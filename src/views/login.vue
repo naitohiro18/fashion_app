@@ -1,6 +1,6 @@
 <template>
   <div class="log in">
-    <img alt="Vue logo" src="../assets/logo.png" />
+    <img alt="Vue logo" src="@/assets/hanger.png" />
     <div>google でログイン</div>
     <div v-if="user">
 
