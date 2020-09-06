@@ -5,21 +5,17 @@
     <button v-on:click="logOut">log Out</button>
     </div>
     <div v-else>
- <router-link to="/login">googleログインページ</router-link>
+    <router-link to="/login">googleログインページ</router-link>
      <router-link to="/mail">メールログインページ</router-link>
      <router-link to="/register">登録ページ</router-link>
     </div>
     <router-view></router-view>
 
-<<<<<<< HEAD
     <div class="header">
       <h1>My Cloz</h1>
       <h2>アカウント作成/ログイン</h2>
      
     </div>
-=======
-    
->>>>>>> origin/master
   </div>
 </template>
 <script>
