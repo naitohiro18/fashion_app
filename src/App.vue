@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <router-link to="/login">ログインページ</router-link>
+    <router-link to="/mypage">マイページ</router-link>
     <router-view></router-view>
 
     
