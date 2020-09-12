@@ -14,16 +14,24 @@ export default {
 <style lang="scss" scoped>
 .header{
   display:flex;
-  
+  justify-content: space-around;
+  align-items: center;
   max-width: 350px;
-  height: 80px;
+  height: 100px;
+  border-bottom: none;
+  padding-top: px;
 }
 .hanger{
-flex:auto;
-width: 20%;
+flex:1;
+width: 30px;
+padding-right: 15px;
+padding-left: 25px;
+
 }
 .mycloz{
-  flex:auto;
-width: 60%;
+  flex:2;
+max-height: 50px;
+padding-right: 25px;
+
 }
 </style>

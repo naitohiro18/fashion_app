@@ -1,8 +1,9 @@
 <template>
   <div>
-<input v-model="email" class="form-control" type="email">
-    <input v-model="password" class="form-control" type="password">
-    <button v-on:click="Signup">Sign Up</button>
+    <div>新規登録会員</div>
+    <p>メールアドレス：<input v-model="email" class="form-control email-form" type="email"></p>
+    <p>パスワード：<input v-model="password" class="form-control password-form" type="password"></p>
+    <button v-on:click="Signup"class="button">登録</button>
   </div>
 </template>
 <style scoped>
@@ -56,3 +57,29 @@ created(){
   }
 }
 </script>
+
+<style scoped>
+
+.email-form {
+  border-radius:50px 50px 50px 50px;
+  width:80%;
+  height:50px;
+  background-color:rgb(235,235,235);
+
+}
+.password-form {
+  border-radius:50px 50px 50px 50px;
+  width:80%;
+  height:50px;
+  background-color:rgb(235,235,235);
+}
+.button{
+  border-radius:50px 50px 50px 50px;
+  width:80%;
+  height:50px;
+  background-color:rgb(105,169,186);
+  color:white;
+  font-size:18px;
+
+}
+</style>
