@@ -18,7 +18,7 @@
 </template>
 <script>
 import firebase from "firebase";
-import { currentUser } from "@/assets/firebase.js";
+import { currentUser } from "@/firebase.js";
 
 export default {
   data() {
