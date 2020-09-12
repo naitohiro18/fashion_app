@@ -1,3 +1,5 @@
+//このページではgoogle loginができるようにする
+
 <template>
   <div class="log in">
     <img alt="Vue logo" src="@/assets/hanger.png" />
