@@ -1,22 +1,14 @@
 <template>
   <div class="footer">
-    <img class="home" src="../assets/home.png" alt="home_logo" />
-    <img class="search" src="../assets/search.png" alt="search_logo" />
-    <img class="add" src="../assets/add.png" alt="add_logo" />
-    <img class="mypage" src="../assets/mypage.png" alt="mypage_logo" />
-    <img class="home" src="../assets/home.png" alt="home_logo" />
-    <img class="search" src="../assets/search.png" alt="search_logo" />
-    <img class="add" src="../assets/add.png" alt="add_logo" />
-    <img class="mypage" src="../assets/mypage.png" alt="mypage_logo" />
+    <img class="home" src="@/assets/home.png" alt="home_logo" />
+    <img class="search" src="@/assets/search.png" alt="search_logo" />
+    <img class="add" src="@/assets/add.png" alt="add_logo" />
+    <img class="mypage" src="@/assets/mypage.png" alt="mypage_logo" />
   </div>
 </template>
 
 <script>
-export default {
-  methods: {
-    
-  }
-};
+export default {};
 </script>
 
 <style lang="scss" scoped>
@@ -28,7 +20,6 @@ export default {
   position: fixed;
   bottom: 0px;
   padding-bottom: 12px;
-
   img {
     width: 8%;
     opacity: 70%;
