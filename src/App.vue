@@ -1,24 +1,20 @@
 <template>
   <div id="app">
-    <div v-if="user">
-      <button v-on:click="logOut">log Out</button>
+     <div class="header">
+
+     <div v-if="user">
+    <button v-on:click="logOut">log Out</button>
     </div>
     <div v-else>
-      <router-link to="/login">googleログインページ</router-link>
-      <router-link to="/mail">メールログインページ</router-link>
-      <router-link to="/register">登録ページ</router-link>
+     <router-link to="/mail">ログイン/登録</router-link>
     </div>
     <router-view></router-view>
-
-    <div class="header">
-      <h1>My Cloz</h1>
-      <h2>アカウント作成/ログイン</h2>
     </div>
   </div>
 </template>
 <script>
-import firebase from "firebase";
-import { currentUser } from "@/firebase.js";
+import firebase from "firebase"
+import {currentUser} from "@/firebase.js"
 
 export default {
   data() {
@@ -31,16 +27,14 @@ export default {
   },
   methods: {
     addUser(info) {
-      console.log(info);
       this.$store.dispatch("addUser", info);
     },
     logOut() {
       firebase.auth().signOut();
     },
 
-    authState() {
-      firebase.auth().onAuthStateChanged(user => {
-        console.log("authが実行");
+    authState(){
+      firebase.auth().onAuthStateChanged(user =>  {
         if (user) {
           // User is signed in.
           this.addUser(user);
