@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Mail from "../views/Mail.vue";
+import Mail from "../views/Mail";
 
 Vue.use(VueRouter);
 
@@ -18,11 +18,11 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
-   {
+  {
     path: "/mail",
     name: "Mail",
     component: Mail
-   },
+  },
 ];
 
 const router = new VueRouter({

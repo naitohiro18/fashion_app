@@ -14,14 +14,13 @@ const firebaseConfig = {
   storageBucket: "fashion-app-b85b2.appspot.com",
   messagingSenderId: "39987669197",
   appId: "1:39987669197:web:e03b69c784a37fb5d92184",
-  measurementId: "G-6P59YDTFZ4"
+  measurementId: "G-6P59YDTFZ4",
 };
 
 firebase.initializeApp(firebaseConfig);
 
-
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount("#app");

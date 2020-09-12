@@ -3,7 +3,7 @@
     <div>新規登録会員</div>
     <p>メールアドレス：<input v-model="email" class="form-control email-form" type="email"></p>
     <p>パスワード：<input v-model="password" class="form-control password-form" type="password"></p>
-    <button v-on:click="Signup"class="button">登録</button>
+    <button v-on:click="Signup" class="button">登録</button>
   </div>
 </template>
 <style scoped>
@@ -24,7 +24,7 @@ export default {
       this.$store.dispatch("addUser", info);
     },
 
-  
+
   Signup(){
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password).catch(function(error) {
   // Handle Errors here.
@@ -43,14 +43,14 @@ export default {
        this.addUser(user);
        this.user=user;
        this.$router.push('/' )
-       
-      } 
+
+      }
       })
     }
 
-    
 
-  
+
+
 },
 created(){
     this.authState()
