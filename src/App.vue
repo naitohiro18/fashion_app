@@ -2,16 +2,13 @@
   <div id="app">
     <router-link to="/login">ログインページ</router-link>
     <router-view></router-view>
-
-    
   </div>
 </template>
 
 <style lang="scss">
-.body{
-  padding:0;
-  margin:0;
-
+.body {
+  padding: 0;
+  margin: 0;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -21,9 +18,9 @@
   color: #2c3e50;
 }
 
-.header{
-  width:100%;
-  height:50px;
+.header {
+  width: 100%;
+  height: 50px;
   border-bottom: 1px solid black;
 }
 #nav {
