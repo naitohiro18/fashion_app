@@ -17,8 +17,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
-
 import Header from "../components/header";
 import Footer from "../components/footer";
 export default {
