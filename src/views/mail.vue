@@ -69,6 +69,7 @@ export default{
   height:50px;
   color:white;
   font-size:18px;
+  margin-top:10px;
  }
  .message{
    font-size: 6px;

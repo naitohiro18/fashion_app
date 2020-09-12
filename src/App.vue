@@ -6,9 +6,12 @@
     <button v-on:click="logOut">log Out</button>
     </div>
     <div v-else>
-     <router-link to="/mail">ログイン/登録</router-link>
+     <router-link to="/mail">ログイン/登録</router-link> |
+     <router-link to="/mypage">Mypage</router-link> |
     </div>
+    
     <router-view></router-view>
+    
     </div>
   </div>
 </template>

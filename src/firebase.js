@@ -3,3 +3,4 @@ export const currentUser = function(){
 return store.state.user
 
 }
+
