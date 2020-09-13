@@ -3,9 +3,6 @@
     <router-link to="/">
       <img class="home" src="@/assets/home.png" alt="home_logo" />
     </router-link>
-    <a href="#">
-      <img class="search" src="@/assets/search.png" alt="search_logo" />
-    </a>
     <router-link to="/itempost">
       <img class="add" src="@/assets/add.png" alt="add_logo" />
     </router-link>
@@ -29,12 +26,12 @@ export default {};
   position: fixed;
   bottom: 0px;
   padding-bottom: 12px;
-
-  a {
-    img {
-      width: 50%;
-      opacity: 70%;
-    }
+}
+  
+a {
+  img {
+    width: 50%;
+    opacity: 70%;
   }
 }
 </style>

@@ -7,6 +7,7 @@
       <div v-else>
         <router-link to="/mail">ログイン/登録</router-link> |
         <router-link to="/mypage">Mypage</router-link> |
+        <router-link to="/itemtable">item</router-link> |
       </div>
 
       <router-view></router-view>
@@ -70,7 +71,6 @@ export default {
 .header {
   width: 100%;
   height: 50px;
-  border-bottom: 1px solid black;
 }
 #nav {
   padding: 30px;
