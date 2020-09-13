@@ -1,8 +1,11 @@
 <template>
   <div class="footer">
-    <img class="home" src="@/assets/home.png" alt="home_logo" />
-    <img class="search" src="@/assets/search.png" alt="search_logo" />
-    <img class="add" src="@/assets/add.png" alt="add_logo" />
+    <router-link to="/">
+      <img class="home" src="@/assets/home.png" alt="home_logo" />
+    </router-link>
+    <router-link to="/itempost">
+      <img class="add" src="@/assets/add.png" alt="add_logo" />
+    </router-link>
     <router-link to="/mypage">
       <img class="mypage" src="@/assets/mypage.png" alt="mypage_logo" />
     </router-link>
@@ -19,11 +22,15 @@ export default {};
   padding-top: 15px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   position: fixed;
   bottom: 0px;
   padding-bottom: 12px;
+}
+  
+a {
   img {
-    width: 8%;
+    width: 50%;
     opacity: 70%;
   }
 }
