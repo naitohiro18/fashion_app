@@ -11,7 +11,7 @@
     </nav>
 
     <p>洋服を追加してみよう。</p>
-    <img class="shoes" src="..\assets\shoes.png" alt="シューズの画像" />
+    <img class="shoes" src="@/assets/shoes.png" alt="シューズの画像" />
     <Footer></Footer>
   </div>
 </template>

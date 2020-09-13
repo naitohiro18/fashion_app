@@ -1,7 +1,7 @@
 <template>
   <div class="header">
-    <img class="hanger" src="../assets/hanger.png" alt="hanger_logo" />
-    <img class="mycloz" src="../assets/my_cloz.png" alt="mycloz_logo" />
+    <img class="hanger" src="@/assets/hanger.png" alt="hanger_logo" />
+    <img class="mycloz" src="@/assets/my_cloz.png" alt="mycloz_logo" />
   </div>
 </template>
 

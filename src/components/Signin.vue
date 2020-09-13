@@ -2,14 +2,12 @@
   <div>
     <div>すでにアカウントをお持ちの方</div>
     <p>
-      メールアドレス<input
-        v-model="email"
-        class="form-control email-form"
-        type="email"
-      />
+      メールアドレス
+      <input v-model="email" class="form-control email-form" type="email" />
     </p>
     <p>
-      パスワード<input
+      パスワード
+      <input
         v-model="password"
         class="form-control password-form"
         type="password"

@@ -2,18 +2,12 @@
   <div>
     <div>新規登録会員</div>
     <p>
-      メールアドレス：<input
-        v-model="email"
-        class="form-control email-form"
-        type="email"
-      />
+      メールアドレス：
+      <input v-model="email" class="form-control email-form" type="email" />
     </p>
     <p>
-      パスワード：<input
-        v-model="password"
-        class="form-control password-form"
-        type="password"
-      />
+      パスワード：
+      <input v-model="password" class="form-control password-form" type="password" />
     </p>
     <button v-on:click="Signup" class="button">登録</button>
   </div>
