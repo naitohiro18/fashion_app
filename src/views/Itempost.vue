@@ -14,6 +14,9 @@
       <option value="L">L</option>
       <option value="LL">LL</option>
     </select>
+    <div class="home">
+      <button v-on:click="item">呼び出す</button>
+    </div>
 
     <input type="file" @change="onImageUploaded" style="display: none;" />
     <input type="submit" name="botton" value="送る" />
@@ -27,6 +30,7 @@
 </template>
 
 <script>
+import db from "@/firebase";
 export default {
   data() {
     return {
@@ -39,7 +43,14 @@ export default {
       itemsize: ""
     };
   },
+  name: "home",
   methods: {
+        postTweet() {
+    db.collection("item").add({
+    cayegory:"カテゴリー",
+    size:"サイズ",
+    }),
+
     sendItem() {
       const item = {
         category: this.category,
