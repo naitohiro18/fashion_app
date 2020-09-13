@@ -3,7 +3,7 @@
     <select v-model="category" name="category">
       <option value>カテゴリー</option>
       <option value="トップス">トップス</option>
-      <option value="ボトムス">ボトムス</option>
+      <option value="パンツ">パンツ</option>
       <option value="シューズ">シューズ</option>
     </select>
 
@@ -33,33 +33,39 @@ export default {
       submittedArticle: {
         title: "",
         description: "",
-        image: null
+        image: null,
       },
       category: "",
-      itemsize: ""
+      itemsize: "",
     };
   },
   methods: {
-    onImageUploaded(e) {
-      // event(=e)から画像データを取得する
-      var image2 = document.getElementById("image");
-      image2.src = window.URL.createObjectURL(e.target.files[0]);
-      const image = e.target.files[0];
-      console.log(image);
-      this.createImage(image);
-    },
-    createImage(image) {
-      const reader = new FileReader();
-      // imageをreaderにDataURLとしてattachする
-      reader.readAsDataURL(image);
-      // readAdDataURLが完了したあと実行される処理
-      reader.onload = () => {
-        this.submittedArticle.image = image;
+    sendItem() {
+      const item = {
+        category: this.category,
+        size: this.size,
       };
-    }
-  }
+      const size = {};
+    },
+  },
+  onImageUploaded(e) {
+    // event(=e)から画像データを取得する
+    var image2 = document.getElementById("image");
+    image2.src = window.URL.createObjectURL(e.target.files[0]);
+    const image = e.target.files[0];
+    console.log(image);
+    this.createImage(image);
+  },
+  createImage(image) {
+    const reader = new FileReader();
+    // imageをreaderにDataURLとしてattachする
+    reader.readAsDataURL(image);
+    // readAdDataURLが完了したあと実行される処理
+    reader.onload = () => {
+      this.submittedArticle.image = image;
+    };
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>
