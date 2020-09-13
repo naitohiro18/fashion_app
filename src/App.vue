@@ -1,20 +1,22 @@
 <template>
   <div id="app">
-     <div class="header">
+    <div class="header">
+      <div v-if="user">
+        <button v-on:click="logOut">log Out</button>
+      </div>
+      <div v-else>
+        <router-link to="/mail">ログイン/登録</router-link> |
+        <router-link to="/mypage">Mypage</router-link> |
+        <router-link to="/itemtable">item</router-link> |
+      </div>
 
-     <div v-if="user">
-    <button v-on:click="logOut">log Out</button>
-    </div>
-    <div v-else>
-     <router-link to="/mail">ログイン/登録</router-link>
-    </div>
-    <router-view></router-view>
+      <router-view></router-view>
     </div>
   </div>
 </template>
 <script>
-import firebase from "firebase"
-import {currentUser} from "@/firebase.js"
+import firebase from "firebase";
+import { currentUser } from "@/firebase.js";
 
 export default {
   data() {
@@ -33,8 +35,8 @@ export default {
       firebase.auth().signOut();
     },
 
-    authState(){
-      firebase.auth().onAuthStateChanged(user =>  {
+    authState() {
+      firebase.auth().onAuthStateChanged(user => {
         if (user) {
           // User is signed in.
           this.addUser(user);
@@ -69,7 +71,6 @@ export default {
 .header {
   width: 100%;
   height: 50px;
-  border-bottom: 1px solid black;
 }
 #nav {
   padding: 30px;

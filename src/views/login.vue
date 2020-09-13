@@ -5,13 +5,11 @@
     <img alt="Vue logo" src="@/assets/hanger.png" />
     <div>google でログイン</div>
     <div v-if="user">
-    <button v-on:click="logOut">log Out</button>
+      <button v-on:click="logOut">log Out</button>
     </div>
     <div v-else>
-    <button v-on:click="logIn">log in</button>
+      <button v-on:click="logIn">log in</button>
     </div>
-
-
   </div>
 </template>
 
@@ -54,5 +52,5 @@ export default {
   created() {
     this.authState();
   }
-}
-  </script>
+};
+</script>

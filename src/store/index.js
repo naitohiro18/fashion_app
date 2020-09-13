@@ -6,13 +6,13 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     //dataの保存場所
-    user: null,
+    user: null
   },
   mutations: {
     //stateの情報をいじる
     addUser(state, user) {
       state.user = user;
-    },
+    }
   },
   actions: {
     // addUser(){
@@ -21,8 +21,8 @@ export default new Vuex.Store({
     //context.commit('increment', payload);
     addUser(context, user) {
       context.commit("addUser", user);
-    },
+    }
   },
   modules: {},
-  getters: {},
+  getters: {}
 });
