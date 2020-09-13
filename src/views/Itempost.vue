@@ -33,20 +33,22 @@ export default {
       submittedArticle: {
         title: "",
         description: "",
-        image: null,
+        image: null
       },
       category: "",
-      itemsize: "",
+      itemsize: ""
     };
   },
   methods: {
     sendItem() {
       const item = {
         category: this.category,
-        size: this.size,
+        size: this.size
       };
+      console.log(item);
       const size = {};
-    },
+      console.log(size);
+    }
   },
   onImageUploaded(e) {
     // event(=e)から画像データを取得する
@@ -64,7 +66,7 @@ export default {
     reader.onload = () => {
       this.submittedArticle.image = image;
     };
-  },
+  }
 };
 </script>
 
