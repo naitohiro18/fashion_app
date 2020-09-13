@@ -44,6 +44,11 @@ const router = new VueRouter({
       path: "/itemtable",
       name: "ItemTable",
       component: ItemTable
+    },
+    {
+      path: "/update",
+      name: "Update",
+      component: Update
     }
   ]
 });
