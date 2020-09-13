@@ -15,36 +15,42 @@ const router = new VueRouter({
     {
       path: "/",
       name: "Home",
-      component: Home,
+      component: Home
     },
     {
       path: "/about",
       name: "About",
 
       component: () =>
-        import(/* webpackChunkName: "about" */ "../views/About.vue"),
+        import(/* webpackChunkName: "about" */ "../views/About.vue")
     },
     {
       path: "/mail",
       name: "Mail",
-      component: Mail,
+      component: Mail
     },
     {
       path: "/itempost",
-      component: Itempost,
+      component: Itempost
     },
     {
       path: "/mypage",
       name: "Mypage",
       component: Mypage,
-      meta: { requiresAuth: true },
+      meta: { requiresAuth: true }
     },
-  ],
+    {
+      path: "/mypage",
+      name: "Mypage",
+      component: Mypage,
+      meta: { requiresAuth: true }
+    }
+  ]
 });
 
 firebase.getCurrentUser = () => {
   return new Promise((resolve, reject) => {
-    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
       unsubscribe();
       resolve(user);
     }, reject);
@@ -52,7 +58,7 @@ firebase.getCurrentUser = () => {
 };
 
 router.beforeEach(async (to, from, next) => {
-  const requiresAuth = to.matched.some((recode) => recode.meta.requiresAuth);
+  const requiresAuth = to.matched.some(recode => recode.meta.requiresAuth);
   if (requiresAuth && !(await firebase.getCurrentUser())) {
     next({ path: "/mail", query: { redirect: to.fullPath } });
   } else {

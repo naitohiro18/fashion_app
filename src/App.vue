@@ -1,64 +1,63 @@
 <template>
   <div id="app">
-     <div class="header">
-    
-     <div v-if="user">
-    <button v-on:click="logOut">log Out</button>
-    </div>
-    <div v-else>
-     <router-link to="/mail">ログイン/登録</router-link>
-    </div>
-    <router-view></router-view>
+    <div class="header">
+      <div v-if="user">
+        <button v-on:click="logOut">log Out</button>
+      </div>
+      <div v-else>
+        <router-link to="/mail">ログイン/登録</router-link> |
+        <router-link to="/mypage">Mypage</router-link> |
+      </div>
+
+      <router-view></router-view>
     </div>
   </div>
 </template>
 <script>
-import firebase from "firebase"
-import {currentUser} from "@/firebase.js"
+import firebase from "firebase";
+import { currentUser } from "@/firebase.js";
 
 export default {
-  data(){
+  data() {
     return {
-    user:null,
-    }
+      user: null
+    };
   },
-  mounted(){
-    this.user=currentUser
+  mounted() {
+    this.user = currentUser;
   },
-  methods:{
-    
+  methods: {
     addUser(info) {
       this.$store.dispatch("addUser", info);
     },
-   logOut(){
-      firebase.auth().signOut()
-  },
+    logOut() {
+      firebase.auth().signOut();
+    },
 
-    authState(){
-      firebase.auth().onAuthStateChanged(user =>  {
+    authState() {
+      firebase.auth().onAuthStateChanged(user => {
         if (user) {
-        // User is signed in.
-       this.addUser(user);
-       this.user=user;
-       
-      } else {
-        // No user is signed in.
-        this.addUser(null);
-        this.user=null;
-      }
-      })
-}
+          // User is signed in.
+          this.addUser(user);
+          this.user = user;
+        } else {
+          // No user is signed in.
+          this.addUser(null);
+          this.user = null;
+        }
+      });
+    }
   },
-   created(){
-    this.authState()
-  }}
+  created() {
+    this.authState();
+  }
+};
 </script>
 
 <style lang="scss">
-.body{
-  padding:0;
-  margin:0;
-
+.body {
+  padding: 0;
+  margin: 0;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -68,9 +67,9 @@ export default {
   color: #2c3e50;
 }
 
-.header{
-  width:100%;
-  height:50px;
+.header {
+  width: 100%;
+  height: 50px;
   border-bottom: 1px solid black;
 }
 #nav {
