@@ -1,5 +1,20 @@
 <template>
   <div id="app">
+<<<<<<< .merge_file_a11588
+=======
+   
+     <div v-if="user">
+    <button v-on:click="logOut">log Out</button>
+    </div>
+    <div v-else>
+    <router-link to="/login">googleログインページ</router-link>
+     <router-link to="/mail">メールログインページ</router-link>
+     <router-link to="/register">登録ページ</router-link>
+     <router-link to="/mypage">マイページ</router-link>
+    </div>
+    <router-view></router-view>
+
+>>>>>>> .merge_file_a07492
     <div class="header">
       <div v-if="user">
         <button v-on:click="logOut">log Out</button>
@@ -15,8 +30,13 @@
   </div>
 </template>
 <script>
+<<<<<<< .merge_file_a11588
 import firebase from "firebase";
 import { currentUser } from "@/firebase.js";
+=======
+import firebase from "firebase"
+import {currentUser} from "@/firebase.js"
+>>>>>>> .merge_file_a07492
 
 export default {
   data() {

@@ -1,5 +1,6 @@
 <template>
   <div class="log in">
+<<<<<<< .merge_file_a12016
     <Header></Header>
     <div v-show="!signup_vesible">
       <Signin></Signin>
@@ -15,6 +16,18 @@
         アカウント新規作成の方はこちら
       </button>
     </div>
+=======
+    <img alt="Vue logo" src="../assets/hanger.png" />
+    <div>mailでログイン</div>
+
+    <div v-show="signup_vesible"><Signup></Signup></div>
+    <button v-on:click="signup_vesible = !signup_vesible">
+      アカウント新規作成の方はこちら
+    </button>
+
+    <div v-show="!signup_vesible"><Signin></Signin></div>
+    <!--基本的にはSigninにしといてアカウントを持っている人にはSignupを表示させるようにする -->
+>>>>>>> .merge_file_a08784
   </div>
 </template>
 
@@ -22,13 +35,20 @@
 import firebase from "firebase";
 import Signup from "@/components/Signup.vue";
 import Signin from "@/components/Signin.vue";
+<<<<<<< .merge_file_a12016
 import Header from "../components/header";
+=======
+>>>>>>> .merge_file_a08784
 
 export default {
   components: {
     Signup,
+<<<<<<< .merge_file_a12016
     Signin,
     Header
+=======
+    Signin
+>>>>>>> .merge_file_a08784
   },
   data() {
     return {
@@ -62,6 +82,7 @@ export default {
   }
 };
 </script>
+<<<<<<< .merge_file_a12016
 
 <style scoped>
 .btn {
@@ -79,3 +100,5 @@ export default {
   padding-left: 30px;
 }
 </style>
+=======
+>>>>>>> .merge_file_a08784
