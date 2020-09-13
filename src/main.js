@@ -14,22 +14,23 @@ const firebaseConfig = {
   storageBucket: "fashion-app-b85b2.appspot.com",
   messagingSenderId: "39987669197",
   appId: "1:39987669197:web:e03b69c784a37fb5d92184",
-  measurementId: "G-6P59YDTFZ4"
+  measurementId: "G-6P59YDTFZ4",
 };
 
 firebase.initializeApp(firebaseConfig);
 
+export const db = firebase.firestore();
 
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount("#app");
 
 firebase.getCurrentUser = () => {
   return new Promise((resolve, reject) => {
-    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
-      unsubscribe()
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      unsubscribe();
       resolve(user);
     }, reject);
   });
