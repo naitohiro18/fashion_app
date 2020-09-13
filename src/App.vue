@@ -68,7 +68,7 @@ export default {
 .header {
   width: 100%;
   height: 50px;
-  border-bottom: 1px solid black;
+  
 }
 #nav {
   padding: 30px;
