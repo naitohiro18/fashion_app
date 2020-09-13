@@ -20,7 +20,7 @@
 <script>
 import firebase from "firebase";
 // import { auth } from "@/main";
-import { db } from "@/main";
+import { db } from "firebase";
 export default {
   data() {
     return {

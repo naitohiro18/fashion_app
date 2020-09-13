@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import firebase from "firebase";
+import "firebase/firestore";
 
 Vue.config.productionTip = false;
 
@@ -18,7 +19,7 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
+const db = firebase.firestore();
 
 new Vue({
   router,
@@ -29,8 +30,11 @@ new Vue({
 firebase.getCurrentUser = () => {
   return new Promise((resolve, reject) => {
     const unsubscribe = firebase.auth().onAuthStateChanged(user => {
-      unsubscribe()
+      unsubscribe();
       resolve(user);
     }, reject);
   });
 };
+
+export default App.firestore();
+export { db };
