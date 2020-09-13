@@ -1,22 +1,22 @@
 <template>
-  <div>マイページ</div>
-  <button v-on:click="edit" class="button">編集</button>
-  
-
+  <div>
+    <h1>Mypage</h1>
+    <div>
+      <img src="src/assests/shoes.png" alt="" />
+      <h1>Name: {{}}</h1>
+      <p>Account: {{}}</p>
+      <p>Gender: {{}}</p>
+      <P>Height: {{}}</P>
+    </div>
+  </div>
 </template>
 
 <script>
-import firebase from "firebase"
 export default {
-  data(){
-    return{
-      
-    }
+  data() {
+    return {
+      user: {}
+    };
   }
-}
+};
 </script>
-
-
-<style scoped>
-
-</style>

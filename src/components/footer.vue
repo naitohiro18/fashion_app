@@ -3,7 +3,9 @@
     <img class="home" src="@/assets/home.png" alt="home_logo" />
     <img class="search" src="@/assets/search.png" alt="search_logo" />
     <img class="add" src="@/assets/add.png" alt="add_logo" />
-    <img class="mypage" src="@/assets/mypage.png" alt="mypage_logo" />
+    <router-link to="/mypage">
+      <img class="mypage" src="@/assets/mypage.png" alt="mypage_logo" />
+    </router-link>
   </div>
 </template>
 

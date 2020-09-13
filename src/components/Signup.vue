@@ -7,7 +7,11 @@
     </p>
     <p>
       パスワード：
-      <input v-model="password" class="form-control password-form" type="password" />
+      <input
+        v-model="password"
+        class="form-control password-form"
+        type="password"
+      />
     </p>
     <button v-on:click="Signup" class="button">登録</button>
   </div>
@@ -73,17 +77,6 @@ export default {
   height: 50px;
   background-color: rgb(235, 235, 235);
 }
-<<<<<<< HEAD
-.button{
-  border-radius:50px 50px 50px 50px;
-  width:80%;
-  height:50px;
-  background-color:rgb(105,169,186);
-  color:white;
-  font-size:18px;
-  margin-top:200px;
-
-=======
 .button {
   border-radius: 50px 50px 50px 50px;
   width: 80%;
@@ -91,6 +84,6 @@ export default {
   background-color: rgb(105, 169, 186);
   color: white;
   font-size: 18px;
->>>>>>> origin/master
+  margin-top: 200px;
 }
 </style>
