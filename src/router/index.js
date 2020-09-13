@@ -1,6 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Itempost from "../views/Itempost.vue";
+
 import Mail from "../views/mail.vue";
 import firebase from "firebase";
 import Mypage from "../views/Mypage.vue";
@@ -28,6 +30,16 @@ const router = new VueRouter({
       component: Mail
     },
     {
+      path: "/itempost",
+      component: Itempost
+    },
+    {
+      path: "/mypage",
+      name: "Mypage",
+      component: Mypage,
+      meta: { requiresAuth: true }
+    },
+    {
       path: "/mypage",
       name: "Mypage",
       component: Mypage,
@@ -39,7 +51,7 @@ const router = new VueRouter({
 firebase.getCurrentUser = () => {
   return new Promise((resolve, reject) => {
     const unsubscribe = firebase.auth().onAuthStateChanged(user => {
-      unsubscribe()
+      unsubscribe();
       resolve(user);
     }, reject);
   });
