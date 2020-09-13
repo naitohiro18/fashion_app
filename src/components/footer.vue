@@ -1,24 +1,19 @@
 <template>
   <div class="footer">
-    <img class="home" src="@/assets/home.png" alt="home_logo" />
-    <img class="add" src="@/assets/add.png" alt="add_logo" />
-    <img
-      class="mypage"
-      src="@/assets/mypage.png"
-      alt="mypage_logo"
-      v-on:click="linkToMypage"
-    />
+    <router-link to="/">
+      <img class="home" src="@/assets/home.png" alt="home_logo" />
+    </router-link>
+    <router-link to="/itempost">
+      <img class="add" src="@/assets/add.png" alt="add_logo" />
+    </router-link>
+    <router-link to="/mypage">
+      <img class="mypage" src="@/assets/mypage.png" alt="mypage_logo" />
+    </router-link>
   </div>
 </template>
 
 <script>
-export default {
-  methods: {
-    linkToMypage() {
-      this.$router.push("mypage");
-    }
-  }
-};
+export default {};
 </script>
 
 <style lang="scss" scoped>
@@ -31,8 +26,11 @@ export default {
   position: fixed;
   bottom: 0px;
   padding-bottom: 12px;
+}
+  
+a {
   img {
-    width: 10%;
+    width: 50%;
     opacity: 70%;
   }
 }
