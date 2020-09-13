@@ -2,11 +2,11 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Itempost from "../views/Itempost.vue";
-import ItemTable from "../views/ItemTable.vue";
 import Mail from "../views/mail.vue";
-import firebase from "firebase";
 import Mypage from "../views/Mypage.vue";
 import Update from "../views/Update.vue";
+import firebase from "firebase";
+
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -39,6 +39,7 @@ const router = new VueRouter({
       name: "Mypage",
       component: Mypage,
       meta: { requiresAuth: true }
+<<<<<<< HEAD
     },
     {
       path: "/itemtable",
@@ -49,6 +50,8 @@ const router = new VueRouter({
       path: "/update",
       name: "Update",
       component: Update
+=======
+>>>>>>> origin/master
     }
   ]
 });

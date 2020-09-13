@@ -19,19 +19,24 @@ export default {};
 <style lang="scss" scoped>
 .footer {
   border-top: 3px solid gray;
-  padding-top: 15px;
+  padding-top: 20px;
   display: flex;
-  justify-content: space-around;
   align-items: center;
   position: fixed;
-  bottom: 0px;
+  justify-content: space-around;
   padding-bottom: 12px;
+  margin: 0;
+  left: 0;
+  bottom: 0px;
+  max-height: 30px;
+  width: 100%;
 }
-  
+
 a {
   img {
-    width: 50%;
     opacity: 70%;
+    width: 30%;
+    margin: 0 auto;
   }
 }
 </style>
