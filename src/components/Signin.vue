@@ -7,7 +7,11 @@
     </p>
     <p>
       パスワード
-      <input v-model="password" class="form-control password-form" type="password" />
+      <input
+        v-model="password"
+        class="form-control password-form"
+        type="password"
+      />
     </p>
     <button v-on:click="logIn" class="button">ログイン</button>
   </div>
@@ -15,6 +19,8 @@
 
 <script>
 import firebase from "firebase";
+// import { auth } from "@/main";
+import { db } from "@/main";
 export default {
   data() {
     return {
@@ -44,10 +50,19 @@ export default {
     },
 
     logIn() {
-      const res = firebase
+      const result = firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password);
-      console.log(res.user);
+      db.collection("users")
+        .doc(result.user.uid)
+        .set({
+          name: result.user.name,
+          account: result.user.account,
+          gender: result.user.gender,
+          height: result.user.height,
+          icon: result.user.icon
+        });
+      console.log(result.user);
     },
 
     logOut() {
@@ -79,5 +94,6 @@ export default {
   background-color: rgb(105, 169, 186);
   color: white;
   font-size: 18px;
+  margin-top: 200px;
 }
 </style>

@@ -11,7 +11,9 @@
     </div>
     <div>
       <p class="message">初めての方はこちら</p>
-      <button class="btn" v-on:click="signup_vesible = !signup_vesible">アカウント新規作成の方はこちら</button>
+      <button class="btn" v-on:click="signup_vesible = !signup_vesible">
+        アカウント新規作成の方はこちら
+      </button>
     </div>
   </div>
 </template>
