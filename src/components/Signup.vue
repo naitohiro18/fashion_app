@@ -7,7 +7,11 @@
     </p>
     <p>
       パスワード：
-      <input v-model="password" class="form-control password-form" type="password" />
+      <input
+        v-model="password"
+        class="form-control password-form"
+        type="password"
+      />
     </p>
     <button v-on:click="Signup" class="button">登録</button>
   </div>
@@ -80,5 +84,6 @@ export default {
   background-color: rgb(105, 169, 186);
   color: white;
   font-size: 18px;
+  margin-top: 200px;
 }
 </style>
