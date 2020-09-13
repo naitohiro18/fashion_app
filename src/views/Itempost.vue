@@ -14,44 +14,31 @@
       <option value="L">L</option>
       <option value="LL">LL</option>
     </select>
-    <div class="home">
-      <button v-on:click="item">呼び出す</button>
-    </div>
 
     <input type="file" @change="onImageUploaded" style="display: none;" />
-    <input type="submit" name="botton" value="送る" />
-    <img
-      id="image"
-      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5
-      YII="
-    />
+    <input v-on:click="sendItem" type="submit" name="botton" value="送る" />
+    <img id="image" src />
     <input type="file" @change="onImageUploaded" />
   </div>
 </template>
 
 <script>
-import db from "@/firebase";
+import { db } from "@/main";
 export default {
   data() {
     return {
-      submittedArticle: {
-        title: "",
-        description: "",
-        image: null
-      },
+      image: null,
       category: "",
       itemsize: ""
     };
   },
   name: "home",
   methods: {
-        postTweet() {
-    db.collection("item").add({
-    cayegory:"カテゴリー",
-    size:"サイズ",
-    }),
-
     sendItem() {
+      db.collection("item").add({
+        cayegory: this.category,
+        size: this.itemsize
+      });
       const item = {
         category: this.category,
         size: this.size
@@ -59,24 +46,24 @@ export default {
       console.log(item);
       const size = {};
       console.log(size);
+    },
+    onImageUploaded(e) {
+      // event(=e)から画像データを取得する
+      var image2 = document.getElementById("image");
+      image2.src = window.URL.createObjectURL(e.target.files[0]);
+      const image = e.target.files[0];
+      console.log(image);
+      this.createImage(image);
+    },
+    createImage(image) {
+      const reader = new FileReader();
+      // imageをreaderにDataURLとしてattachする
+      reader.readAsDataURL(image);
+      // readAdDataURLが完了したあと実行される処理
+      reader.onload = () => {
+        this.image = image;
+      };
     }
-  },
-  onImageUploaded(e) {
-    // event(=e)から画像データを取得する
-    var image2 = document.getElementById("image");
-    image2.src = window.URL.createObjectURL(e.target.files[0]);
-    const image = e.target.files[0];
-    console.log(image);
-    this.createImage(image);
-  },
-  createImage(image) {
-    const reader = new FileReader();
-    // imageをreaderにDataURLとしてattachする
-    reader.readAsDataURL(image);
-    // readAdDataURLが完了したあと実行される処理
-    reader.onload = () => {
-      this.submittedArticle.image = image;
-    };
   }
 };
 </script>
