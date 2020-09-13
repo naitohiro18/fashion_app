@@ -1,8 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Itempost from "../views/Itempost.vue";
+
 import Mail from "../views/mail.vue";
-import Store from "../store/index.js";
+import firebase from "firebase";
+import Mypage from "../views/Mypage.vue";
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -25,20 +28,36 @@ const router = new VueRouter({
       path: "/mail",
       name: "Mail",
       component: Mail,
-      meta: {
-        isPublic: true,
-      },
+    },
+    {
+      path: "/itempost",
+      component: Itempost,
+    },
+    {
+      path: "/mypage",
+      name: "Mypage",
+      component: Mypage,
+      meta: { requiresAuth: true },
     },
   ],
 });
 
-router.beforeEach((to, from, next) => {
-  if (to.matched.some((page) => page.meta.isPublic)) {
-    next();
-  } else if (Store.state.user) {
-    next();
+firebase.getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      unsubscribe();
+      resolve(user);
+    }, reject);
+  });
+};
+
+router.beforeEach(async (to, from, next) => {
+  const requiresAuth = to.matched.some((recode) => recode.meta.requiresAuth);
+  if (requiresAuth && !(await firebase.getCurrentUser())) {
+    next({ path: "/mail", query: { redirect: to.fullPath } });
   } else {
-    next("/mail");
+    next();
   }
 });
+
 export default router;
