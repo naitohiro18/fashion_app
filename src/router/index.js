@@ -2,47 +2,11 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Itempost from "../views/Itempost.vue";
-import ItemTable from "../views/ItemTable.vue";
 import Mail from "../views/mail.vue";
-import register from "../views/Register.vue";
-import Login from "../views/login.vue";
 import Mypage from "../views/Mypage.vue";
+import firebase from "firebase";
 
 Vue.use(VueRouter);
-
-const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home
-  },
-  {
-    path: "/about",
-    name: "About",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
-  },
-  {
-    path: "/login",
-    name: "Login",
-    component: Login
-  },
-  {
-    path: "/mypage",
-    name: "Mypage",
-    component: Mypage
-  },
-  {
-    path: "/mail",
-    name: "Mail",
-    component: Mail
-  },
-  {
-    path: "/register",
-    name: "register",
-    component: register
-  }
-];
 
 const router = new VueRouter({
   mode: "history",
@@ -74,11 +38,6 @@ const router = new VueRouter({
       name: "Mypage",
       component: Mypage,
       meta: { requiresAuth: true }
-    },
-    {
-      path: "/itemtable",
-      name: "ItemTable",
-      component: ItemTable
     }
   ]
 });

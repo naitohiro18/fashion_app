@@ -1,4 +1,3 @@
-<<<<<<< .merge_file_a02744
 <template>
   <div>
     <h1>Mypage</h1>
@@ -21,31 +20,3 @@ export default {
   }
 };
 </script>
-=======
-<template>
-
-<div class="icon"></div>
-
-</template>
-
-
-
-
-<script>
-export default {
-  
-}
-</script>
-
-
-
-<style lang="scss" scoped>
-.icon{
-	width: 120px;
-	height: 120px;
-	border-radius: 50%;
-  background: skyblue;
-  margin: 100px auto;
-}
-</style>
->>>>>>> .merge_file_a12172
