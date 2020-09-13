@@ -40,12 +40,6 @@ const router = new VueRouter({
       meta: { requiresAuth: true }
     },
     {
-      path: "/mypage",
-      name: "Mypage",
-      component: Mypage,
-      meta: { requiresAuth: true }
-    },
-    {
       path: "/itemtable",
       name: "ItemTable",
       component: ItemTable

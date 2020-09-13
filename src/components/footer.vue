@@ -27,6 +27,7 @@ export default {
   padding-top: 15px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   position: fixed;
   bottom: 0px;
   padding-bottom: 12px;
