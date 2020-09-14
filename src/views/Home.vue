@@ -1,8 +1,10 @@
 <template>
   <div class="home">
     <Header></Header>
-    <!-- <Navigation></Navigation> -->
-    <p v-if="!this.clothes">洋服を追加してみよう。</p>
+    <div v-if="!this.clothes">
+      <p>洋服を追加してみよう。</p>
+      <img class="shoes" src="@/assets/shoes.png" alt="シューズの画像" />
+    </div>
     <div v-else>
       <div v-for="cloth in clothes" :key="cloth.id">
         <img v-bind:src="cloth.item.image_url" alt="服の写真" />
@@ -10,7 +12,6 @@
         <span>{{ cloth.item.itemsize }}</span>
       </div>
     </div>
-    <img class="shoes" src="@/assets/shoes.png" alt="シューズの画像" />
     <Footer></Footer>
   </div>
 </template>
@@ -19,7 +20,6 @@
 // @ is an alias to /src
 
 import Header from "../components/header.vue";
-// import Navigation from "../components/Navigation.vue";
 import Footer from "../components/footer.vue";
 import { db } from "@/main";
 export default {
@@ -32,7 +32,6 @@ export default {
   components: {
     Header,
     Footer
-    // Navigation
   },
   mounted() {
     db.collection("items")
@@ -53,7 +52,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .shoes {
   width: 200px;
   margin: 0 auto;
