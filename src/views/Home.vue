@@ -7,9 +7,9 @@
     </div>
     <div v-else>
       <div v-for="cloth in clothes" :key="cloth.id">
-        <img v-bind:src="cloth.item.image_url" alt="服の写真" />
-        <span>{{ cloth.item.category }}</span>
-        <span>{{ cloth.item.itemsize }}</span>
+        <img class="cloth-photo" v-bind:src="cloth.item.image_url" alt="服の写真" />
+        <h3>{{ cloth.item.category }}</h3>
+        <h3>{{ cloth.item.itemsize }}</h3>
       </div>
     </div>
     <Footer></Footer>
@@ -53,6 +53,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h3 {
+  font-size: 12px;
+}
 .shoes {
   width: 200px;
   margin: 0 auto;
@@ -85,5 +88,9 @@ p {
   flex-direction: column;
   width: 30%;
   justify-content: flex-start;
+}
+.cloth-photo {
+  width: 80%;
+  height: 80%;
 }
 </style>
