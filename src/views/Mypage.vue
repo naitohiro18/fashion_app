@@ -1,39 +1,34 @@
 <template>
   <div>
+    <Header></Header>
     <h1>Mypage</h1>
     <div>
-      <img src="src/assests/shoes.png" alt="" />
-      <h1>Name: {{}}</h1>
-      <p>Account: {{}}</p>
-      <p>Gender: {{}}</p>
-      <P>Height: {{}}</P>
-      <router-link to="/update">
-        <button>編集</button>
-      </router-link>
-      <!-- <p>{{ $data }}</p>
-      <p>{{ $route.params.id }}</p> -->
+      <img src="src/assests/shoes.png" alt />
+      <h1>Name: {{ this. name }}</h1>
+      <p>Account: {{ this.account }}</p>
+      <p>Gender: {{ this.gender}}</p>
+      <P>Height: {{ this.height }} cm</P>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
-import { firestore } from "firebase";
-import { db } from "firebase";
-
+import Header from "../components/header";
+import Footer from "../components/footer";
 export default {
   data() {
     return {
-      users: [],
-      userSample: firestore().users
+      user: {},
+      name: "Hiroto",
+      account: "@hiroto.fashion.app",
+      gender: "male",
+      height: 170,
     };
   },
-  firestore() {
-    return {
-      users: db
-        .collection("users")
-        .doc("YZ2HyMBc5L2c34fIYHTY")
-        .get()
-    };
+  components: {
+    Header,
+    Footer
   }
 };
 </script>

@@ -1,5 +1,6 @@
 <template>
   <div class="post">
+    <Header></Header>
     <select v-model="category" name="category">
       <option value>カテゴリー</option>
       <option value="トップス">トップス</option>
@@ -16,17 +17,19 @@
       <option value="LL">LL</option>
     </select>
 
-    <input type="file" @change="onImageUploaded" style="display: none;" />
+    <input id="image" type="file" @change="onImageUploaded" style="display: none;" />
     <input v-on:click="sendItem" type="submit" name="botton" value="送る" />
-    <img id="image" src alt="画像ここだよ" />
     <input type="file" @change="onImageUploaded" />
-    <div>{{ $data }}</div>
+    <!-- <div>{{ $data }}</div> -->
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import { db } from "@/main";
 import { firestorage } from "@/main";
+import Header from "../components/header";
+import Footer from "../components/footer";
 
 export default {
   data() {
@@ -38,7 +41,10 @@ export default {
       imageName: ""
     };
   },
-
+  components: {
+    Header,
+    Footer
+  },
   name: "home",
   methods: {
     sendItem() {
@@ -66,7 +72,6 @@ export default {
       image2.src = window.URL.createObjectURL(e.target.files[0]);
       const image = e.target.files[0];
       this.imageName = image.name;
-      console.log(image);
       this.createImage(image);
     },
     createImage(image) {
