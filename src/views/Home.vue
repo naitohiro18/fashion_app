@@ -69,4 +69,22 @@ p {
   position: relative;
   top: 150px;
 }
+
+.item-table {
+  display: flex;
+}
+
+.item-box {
+  border-radius: 10%;
+  margin-top: 20px;
+  width: 30%;
+  height: 140px;
+  background-color: hotpink;
+  display: flex;
+}
+.item-category {
+  flex-direction: column;
+  width: 30%;
+  justify-content: flex-start;
+}
 </style>
