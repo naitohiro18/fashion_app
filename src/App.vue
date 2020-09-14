@@ -5,9 +5,9 @@
         <button v-on:click="logOut">log Out</button>
       </div>
       <div v-else>
-        <router-link to="/mail">ログイン/登録</router-link> |
-        <router-link to="/mypage">Mypage</router-link> |
-        <router-link to="/itemtable">item</router-link> |
+        <router-link to="/mail" tag="button" class="loginButton"
+          >ログイン/登録</router-link
+        >
       </div>
 
       <router-view></router-view>
@@ -61,7 +61,7 @@ export default {
   margin: 0;
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: SimSun;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -83,5 +83,19 @@ export default {
       color: #42b983;
     }
   }
+}
+
+.loginButton {
+  padding: 10px;
+  color: #fff;
+  background-color: #42b983;
+  border-bottom: 5px solid #1c8f5b;
+  border-radius: 100vh;
+}
+.loginButton:hover {
+  margin-top: 3px;
+  color: #fff;
+  background: #54cf98;
+  border-bottom: 2px solid #1c8f5b;
 }
 </style>
