@@ -1,16 +1,42 @@
 <template>
+  <!-- このvueは使いません -->
   <nav class="navigation">
-    <a class="navigation-item" href="#">すべて</a>
-    <a class="navigation-item" href="#">トップス</a>
-    <a class="navigation-item" href="#">パンツ</a>
-    <a class="navigation-item" href="#">アウター</a>
-    <a class="navigation-item" href="#">シューズ</a>
-    <a class="navigation-item" href="#">バッグ</a>
+    <div class="navigation-item" v-on:click="getallclothes">すべて</div>
+    <div class="navigation-item" v-on:click="getclothes(トップス)">トップス</div>
+    <div class="navigation-item" v-on:click="getclothes(パンツ)">パンツ</div>
+    <div class="navigation-item" v-on:click="getclothes(アウター)">アウター</div>
+    <div class="navigation-item" v-on:click="getclothes(シューズ)">シューズ</div>
+    <div class="navigation-item" v-on:click="getclothes(バッグ)">バッグ</div>
   </nav>
 </template>
 
 <script>
-export default {};
+import { db } from "@/main";
+export default {
+  data() {
+    return {
+      clothes: null
+    };
+  },
+  methods: {
+    getallclothes() {
+      db.collection("items")
+        .get()
+        .then(snapshot => {
+          this.clothes = snapshot.docs.map(doc => {
+            return {
+              id: doc.id,
+              ...doc.data()
+            };
+          });
+        })
+        .catch(err => {
+          console.log("Error getting documents", err);
+        });
+      // console.log(this.clothes[0].item.itemsize);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
