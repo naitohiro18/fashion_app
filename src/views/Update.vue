@@ -5,25 +5,16 @@
     <p>アカウント名：<input type="text" /></p>
     <p>性別：<input type="text" /></p>
     <!-- あとでoptionに変更 -->
-    <p>身長：<input type="number" />cm</p> 
+    <p>身長：<input type="number" />cm</p>
     <p>アイコン：<input type="url" /></p>
     <button v-on:click="update" class="button">更新</button>
-    <div>
-      <p v-for="user in users" :key="user.id">
-        {{ user.name }}
-        {{ user.account }}
-        {{ user.height }}
-        {{ user.gender }}
-        {{ user.icon_URL }}
-      </p>
-    </div>
-    <div>{{ $data }}</div>
   </div>
 </template>
 
 <script>
 import { db } from "@/main";
 import "firebase/firestore";
+import { auth } from "@/main";
 // import firebase from "@/main";
 export default {
   data() {
@@ -38,19 +29,17 @@ export default {
   },
   methods: {
     update() {
-      // const user = {
-      //   name: "taro"
-      // };
+      const user = {
+        name: this.name,
+        account: this.account,
+        gender: this.gender,
+        height: this.height,
+        icon_URL: this.icon_URL
+      };
       db.collection("users")
-        // .add(user)
-        // .then(ref => {
-        //   this.users.push({
-        //     id: ref.id,
-        //     ...user
-        .add({
-          name: "jimmy"
-          // createdAt: firebase.firestore.FieldValue.serverTimestamp()
-        });
+        .add({ user })
+        .then(user => this.$router.push("mypage" + user.id));
+      console.log("更新");
     }
   },
 
@@ -65,6 +54,9 @@ export default {
           });
         });
       });
+    auth.onAuthStateChanged(user => {
+      this.currentUser = user;
+    });
   }
 };
 </script>

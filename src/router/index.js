@@ -6,6 +6,7 @@ import Mail from "../views/mail.vue";
 import Mypage from "../views/Mypage.vue";
 import Update from "../views/Update.vue";
 import firebase from "firebase";
+// import { auth } from "@/main";
 
 Vue.use(VueRouter);
 
@@ -35,23 +36,15 @@ const router = new VueRouter({
       component: Itempost
     },
     {
-      path: "/mypage",
+      path: "/mypage/:id",
       name: "Mypage",
       component: Mypage,
       meta: { requiresAuth: true }
-<<<<<<< HEAD
-    },
-    {
-      path: "/itemtable",
-      name: "ItemTable",
-      component: ItemTable
     },
     {
       path: "/update",
       name: "Update",
       component: Update
-=======
->>>>>>> origin/master
     }
   ]
 });

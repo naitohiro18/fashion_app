@@ -10,7 +10,8 @@
       <router-link to="/update">
         <button>編集</button>
       </router-link>
-      <p>{{ $data }}</p>
+      <!-- <p>{{ $data }}</p>
+      <p>{{ $route.params.id }}</p> -->
     </div>
   </div>
 </template>
@@ -18,11 +19,12 @@
 <script>
 import { firestore } from "firebase";
 import { db } from "firebase";
+
 export default {
   data() {
     return {
       users: [],
-      userSample: firestore().users,
+      userSample: firestore().users
     };
   },
   firestore() {
