@@ -1,16 +1,16 @@
 <template>
   <div class="home">
     <Header></Header>
-    <Navigation></Navigation>
-    <div v-if="itemNone">
-      <p>洋服を追加してみよう。</p>
-      <img class="shoes" src="@/assets/shoes.png" alt="シューズの画像" />
-    </div>
+    <!-- <Navigation></Navigation> -->
+    <p v-if="!this.clothes">洋服を追加してみよう。</p>
     <div v-else>
-      <div class="item-table"></div>
-      <div class="item-box"></div>
-      <div class="item-category">ブランド<br />カテゴリー</div>
+      <div v-for="cloth in clothes" :key="cloth.id">
+        <img v-bind:src="cloth.item.image_url" alt="服の写真" />
+        <span>{{ cloth.item.category }}</span>
+        <span>{{ cloth.item.itemsize }}</span>
+      </div>
     </div>
+    <img class="shoes" src="@/assets/shoes.png" alt="シューズの画像" />
     <Footer></Footer>
   </div>
 </template>
@@ -19,19 +19,36 @@
 // @ is an alias to /src
 
 import Header from "../components/header.vue";
-import Navigation from "../components/Navigation.vue";
+// import Navigation from "../components/Navigation.vue";
 import Footer from "../components/footer.vue";
+import { db } from "@/main";
 export default {
   name: "Home",
   data() {
     return {
-      itemNone: true
+      clothes: null
     };
   },
   components: {
     Header,
-    Footer,
-    Navigation
+    Footer
+    // Navigation
+  },
+  mounted() {
+    db.collection("items")
+      .get()
+      .then(snapshot => {
+        this.clothes = snapshot.docs.map(doc => {
+          return {
+            id: doc.id,
+            ...doc.data()
+          };
+        });
+      })
+      .catch(err => {
+        console.log("Error getting documents", err);
+      });
+    // console.log(this.clothes[0].item.itemsize);
   }
 };
 </script>
