@@ -20,7 +20,7 @@
 <script>
 import firebase from "firebase";
 // import { auth } from "@/main";
-import { db } from "@/main";
+import { db } from "firebase";
 export default {
   data() {
     return {
@@ -94,6 +94,6 @@ export default {
   background-color: rgb(105, 169, 186);
   color: white;
   font-size: 18px;
-  margin-top: 200px;
+  margin-top: 100px;
 }
 </style>

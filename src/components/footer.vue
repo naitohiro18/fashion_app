@@ -6,14 +6,29 @@
     <router-link to="/itempost">
       <img class="add" src="@/assets/add.png" alt="add_logo" />
     </router-link>
-    <router-link to="/mypage">
+    <router-link to="/mypage/:firebase().user">
       <img class="mypage" src="@/assets/mypage.png" alt="mypage_logo" />
     </router-link>
+    <!-- <div>{{ $data }}</div> -->
   </div>
 </template>
 
 <script>
-export default {};
+import firebase from "firebase";
+import { db } from "@/main";
+// import auth from "firebase";
+export default {
+  data() {
+    return {
+      authId: firebase.auth().currentUser
+    };
+  },
+  firestore() {
+    return {
+      user: db.collection("users").doc(this.$route.params.uid)
+    };
+  }
+};
 </script>
 
 <style lang="scss" scoped>
